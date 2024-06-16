@@ -14,8 +14,10 @@ const AddItem = (props) => {
     }
 
     function handleSubmit(e){
-        e.preventDefault()
-        props.onFormSubmit(formData)
+        if (formData.recipeName != "" && formData.price != "") {
+            props.onFormSubmit(formData)
+        }
+        
     }
 
   return (
