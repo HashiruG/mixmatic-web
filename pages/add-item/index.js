@@ -30,7 +30,7 @@ const AddItemPage = () => {
     return(
         <div>
             <NavbarItem></NavbarItem>
-            <AddItem firstInput="Enter Recipe Name" secondInput="Enter price" onFormSubmit={handleFormSubmit}></AddItem>
+            <AddItem firstInput="Recipe Name" secondInput="Price" onFormSubmit={handleFormSubmit}></AddItem>
     
         </div>
         )

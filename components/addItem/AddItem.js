@@ -1,6 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
+import styles from "./AddItem.module.css"
+
 
 const AddItem = (props) => {
 
@@ -24,16 +27,21 @@ const AddItem = (props) => {
     }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <div className={styles.formContainer}>
+ 
+      <Card style={{ width: '30rem' }}>
+      <Card.Body>
+        <Card.Title>New Recipe Details</Card.Title>
+        <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" >
         <Form.Label>{props.firstInput}</Form.Label>
-        <Form.Control name="recipeName" type="text"  onChange={(e) => {handleChange(e.target.name, e.target.value)}}/>
+        <Form.Control name="recipeName" type="text"  onChange={(e) => {handleChange(e.target.name, e.target.value)}}  placeholder="Enter Recipe Name" />
         
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>{props.secondInput}</Form.Label>
-        <Form.Control name="price" type="number" onChange={(e) => {handleChange(e.target.name, e.target.value)}}/>
+        <Form.Control name="price" type="number" onChange={(e) => {handleChange(e.target.name, e.target.value)}}   placeholder="Enter Price" />
       </Form.Group>
       
       <Button variant="primary" type="submit">
@@ -41,6 +49,11 @@ const AddItem = (props) => {
       </Button>
      
     </Form>
+      </Card.Body>
+    </Card>
+   
+    </div>
+
   );
 }
 
