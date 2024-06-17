@@ -5,6 +5,7 @@ import { useState } from 'react';
 const AddItem = (props) => {
 
     const [formData, setformData] = useState({recipeName:"", price:""})
+    
     function handleChange(name, value){
             setformData((prevvalue) =>{
                 return({...prevvalue,
@@ -14,7 +15,9 @@ const AddItem = (props) => {
     }
 
     function handleSubmit(e){
+      e.preventDefault();
         if (formData.recipeName != "" && formData.price != "") {
+
             props.onFormSubmit(formData)
         }
         
