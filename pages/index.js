@@ -21,7 +21,7 @@ export default function Home() {
            <NavbarItem></NavbarItem>
            {recipes.map((recipe) =>{
             return(
-                <CardItem key={recipe._id} name={recipe.recipeName} price={recipe.price} href={`/${recipe._id}`}></CardItem>
+                <CardItem id={recipe._id} key={recipe._id} name={recipe.recipeName} price={recipe.price} href={`/${recipe._id}`}></CardItem>
             )
            })}
         </div>
