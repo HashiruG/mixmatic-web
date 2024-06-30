@@ -14,7 +14,7 @@ const AddItemPage = () => {
 
     useEffect(() => {
         if (formData != null) {
-            axios.post('/api/add-item', formData)
+            axios.post('/api/', formData)
             .then(function (response) {
               console.log(response);
               router.push('/');

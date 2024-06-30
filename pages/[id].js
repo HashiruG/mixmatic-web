@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import AddItem from '@/components/addItem/AddItem';
 import NavbarItem from '@/components/navigation/NavbarItem';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import styles from "./id.module.css"
+import Card from 'react-bootstrap/Card';
 
 
 const EditRecipe = () => {
@@ -45,22 +46,33 @@ const EditRecipe = () => {
     return (
         <div>
             <NavbarItem></NavbarItem>
+            
+            <div className={styles.formContainer}>
+            <Card style={{ width: '30rem' }}>
+            <Card.Body>
+
+            <Card.Title>Change Recipe Details</Card.Title>
             <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
-                <Form.Label>Enter Recipe</Form.Label>
+                <Form.Label>Change Recipe Name</Form.Label>
                 <Form.Control name="recipeName" type="text"  onChange={(e) => {handleChange(e.target.name, e.target.value)}} value={recipe.recipeName}/>
                 
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label>Enter Price</Form.Label>
+                <Form.Label>Change Price</Form.Label>
                 <Form.Control name="price" type="number" onChange={(e) => {handleChange(e.target.name, e.target.value)}} value={recipe.price}/>
             </Form.Group>
             
-            <Button variant="primary" type="submit">
-                Submit
+            <Button variant="dark" type="submit">
+                Apply
             </Button>
             </Form>
+            </Card.Body>
+            </Card>
+           
+            </div>
+
         </div>
         
     );
