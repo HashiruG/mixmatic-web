@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import AuthenticationItem from '@/components/login/AuthenticationItem';
 import { signIn } from "next-auth/react";
-import LoginItem from '@/components/login/login';
+import LoginItem from '@/components/login/Login';
 import { useState } from 'react';
 
 export default function Login() {
