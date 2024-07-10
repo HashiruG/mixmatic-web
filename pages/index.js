@@ -1,33 +1,47 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import NavbarItem from '@/components/navigation/NavbarItem';
-import CardItem from '@/components/card/CardItem';
-import styles from "./index.module.css"
+import { useRouter } from 'next/router';
+import AuthenticationItem from '@/components/login/AuthenticationItem';
+import { signIn } from "next-auth/react";
+import LoginItem from '@/components/login/login';
+import { useState } from 'react';
 
+export default function Login() {
+    const router = useRouter();
 
+    const [message, setmessage] = useState("")
 
-export default function Home() {
-    const [recipes, setRecipes] = useState([]);
+    async function handleSubmit(formData) {
+     
 
-    useEffect(() => {
-        axios.get('/api/')
-            .then(response => setRecipes(response.data.data))
-            .catch(error => console.error(error));
-    }, [recipes]);
+        try {
+            const result = await signIn('credentials', {
+                redirect: false,
+                email: formData.email,
+                password: formData.password,
+            });
+            
 
-    console.log(recipes);
+            console.log("Sign-in Result:", result);
+
+            if (result.error) {
+                console.error("Sign-in error:", result.error);
+               setmessage(result.error)
+            } else {
+                console.log("Sign-in successful:", result);
+                
+                router.push('/menu');
+            }
+        } catch (error) {
+            console.error("Sign-in request failed:", error);
+        }
+    }
 
     return (
-        <div>
-           <NavbarItem></NavbarItem>
-           <div className={styles.menuControl}>
-           {recipes.map((recipe) =>{
-            return(
-                <CardItem id={recipe._id} key={recipe._id} name={recipe.recipeName} price={recipe.price} href={`/${recipe._id}`}></CardItem>
-            )
-           })}
-           </div>
-         
-        </div>
+       
+       
+    <LoginItem onFormSubmit={handleSubmit} message={message}/>
+    
+
+        
+    
     );
 }
