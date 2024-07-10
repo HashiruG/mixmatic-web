@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import NavbarItem from '@/components/navigation/NavbarItem';
 import Form from 'react-bootstrap/Form';
@@ -8,7 +9,7 @@ import styles from "./id.module.css"
 import Card from 'react-bootstrap/Card';
 
 
-const EditRecipe = () => {
+const EditRecipe = ({session}) => {
     const router = useRouter();
     const { id } = router.query;
 
@@ -34,11 +35,11 @@ const EditRecipe = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         axios.patch(`/api/${id}`, recipe)
             .then(response => {
                 console.log('Recipe updated:', response.data);
-                router.push('/');
+                router.replace('/menu');
             })
             .catch(error => console.error(error));
     };

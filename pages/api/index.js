@@ -25,21 +25,7 @@ export default async function handler(req, res) {
             }
             break;
 
-        case 'POST':
-            // Handle adding or updating a recipe
-            try {
-                const newRecipe = req.body;
-
-                const recipe = await Recipe.create(newRecipe);
-
-                // Notify clients about the change
-                notifyClients(recipe);
-
-                res.status(201).json({ success: true, data: recipe });
-            } catch (error) {
-                res.status(400).json({ success: false, message: error.message });
-            }
-            break;
+      
 
         default:
             res.status(400).json({ success: false });

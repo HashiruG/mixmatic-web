@@ -1,11 +1,11 @@
 .menuControl{
     position: relative;
-    margin-top: 40px;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-top: 60px;
+    margin-left: 280px;
+    margin-right: 250px;
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
     align-content: space-between;
-    gap: 1rem;
+    gap: 3rem;
 }

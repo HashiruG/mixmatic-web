@@ -10,7 +10,7 @@ const CardItem = (props) => {
   async function handleDelete(){
     try {
       await axios.delete(`/api/${props.id}`);
-      router.push("/"); 
+      router.push("/menu"); 
   } catch (error) {
       console.error('Failed to delete the recipe', error);
   }

@@ -1,45 +1,37 @@
-import { useState, useEffect } from "react";
-import { useRouter } from 'next/router';
-import { getSession } from "next-auth/react";
+import AuthenticationItem from "@/components/login/AuthenticationItem";
 import axios from 'axios';
-import NavbarItem from "@/components/navigation/NavbarItem";
-import AddItem from "@/components/addItem/AddItem";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { getSession } from "next-auth/react";
 
-
-const AddItemPage = ({session}) => {
-
+export default function Signup({session}) {
     const [formData, setformData] = useState(null)
     const router = useRouter();
     function handleFormSubmit(formData){
         setformData(formData)
+     
     }    
 
-
-
+    
     useEffect(() => {
+     
         if (formData != null) {
-            axios.post('/api/add-item', formData)
+            axios.post('/api/auth/signup', formData)
             .then(function (response) {
-              console.log(response);
-              router.push('/menu');
+            
+              router.replace('/menu');
             })
             .catch(function (error) {
               console.log(error);
             });
         }
        
-    }, [formData,router]);
-
+    }, [formData]);
 
     return(
-        <div>
-            <NavbarItem></NavbarItem>
-            <AddItem firstInput="Recipe Name" secondInput="Price" onFormSubmit={handleFormSubmit}></AddItem>
+        <AuthenticationItem onFormSubmit={handleFormSubmit}></AuthenticationItem>
+    )
     
-        </div>
-        )
-
-      
 }
 
 export async function getServerSideProps(context) {
@@ -58,5 +50,3 @@ export async function getServerSideProps(context) {
         props: { session }
     }
 }
-
-export default AddItemPage;
