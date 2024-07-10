@@ -44,7 +44,7 @@ const AddItem = (props) => {
         <Form.Control name="price" type="number" onChange={(e) => {handleChange(e.target.name, e.target.value)}}   placeholder="Enter Price" />
       </Form.Group>
       
-      <Button variant="primary" type="submit">
+      <Button variant="dark" type="submit">
         Submit
       </Button>
      

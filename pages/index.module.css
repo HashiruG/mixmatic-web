@@ -1,8 +1,8 @@
 .menuControl{
     position: relative;
     margin-top: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
