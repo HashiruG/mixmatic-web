@@ -1,11 +1,17 @@
 .menuControl{
-    position: relative;
-    margin-top: 60px;
-    margin-left: 280px;
-    margin-right: 250px;
     display: flex;
+    margin: 2rem 10rem;
     justify-content: start;
-    flex-wrap: wrap;
     align-content: space-between;
     gap: 3rem;
 }
+
+@media (max-width: 576px) {
+    .menuControl{
+         display: flex;
+         justify-content: center;
+         padding: 3px;
+         gap: 3rem;
+     }
+     
+  }

@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import NavbarItem from '@/components/navigation/NavbarItem';
 import CardItem from '@/components/card/CardItem';
 import styles from "./index.module.css"
@@ -22,15 +24,19 @@ export default function Home({ session }) {
         <div>
            <NavbarItem></NavbarItem>
            <div className={styles.menuControl}>
-           {recipes.map((recipe) => (
-                <CardItem 
-                    id={recipe._id} 
-                    key={recipe._id} 
-                    name={recipe.recipeName} 
-                    price={recipe.price} 
-                    href={`/${recipe._id}`}
-                />
-           ))}
+           <Row className="g-4">
+                   {recipes.map(recipe => (
+                       <Col xs={12} md={4} key={recipe._id}>
+                           <CardItem 
+                               id={recipe._id} 
+                               name={recipe.recipeName} 
+                               price={recipe.price} 
+                               href={`/${recipe._id}`}
+                           />
+                       </Col>
+                   ))}
+               </Row>
+
            </div>
         </div>
     );
