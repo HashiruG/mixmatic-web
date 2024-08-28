@@ -33,7 +33,7 @@ const AuthenticationItem = (props) => {
  
     <div className={styles.formContainer}>
       
-      <Card style={{ width: '30rem' }}>
+      <Card className={styles.card}>
       <Card.Body>
         <Card.Title>Sign Up</Card.Title>
         <Form onSubmit={handleSubmit} >

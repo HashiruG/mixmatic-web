@@ -29,7 +29,7 @@ const AddItem = (props) => {
   return (
     <div className={styles.formContainer}>
  
-      <Card style={{ width: '30rem' }}>
+      <Card className={styles.card}> 
       <Card.Body>
         <Card.Title>New Recipe Details</Card.Title>
         <Form onSubmit={handleSubmit}>
