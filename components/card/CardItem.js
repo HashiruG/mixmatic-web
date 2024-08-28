@@ -17,7 +17,7 @@ const CardItem = (props) => {
   }
 
   return (
-    <Card style={{ width: '18rem'}}>
+    <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="https://media.istockphoto.com/id/1395736637/photo/spring-or-summer-cold-cocktail-raspberry-lemonade.jpg?s=612x612&w=0&k=20&c=Eim8oSm-ycxAVssFPrOVwWpeo6iOaoZkkglKrmbKSk4=" />
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>

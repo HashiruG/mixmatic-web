@@ -1,35 +1,17 @@
 .menuControl{
     display: flex;
-    padding: 4rem 9rem;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    
- 
- 
+    margin: 2rem 10rem;
+    justify-content: start;
+    align-content: space-between;
+    gap: 3rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
     .menuControl{
          display: flex;
          justify-content: center;
          padding: 3px;
-       
+         gap: 3rem;
      }
      
   }
-
-  .contControl{
-    width: 95%;
-    padding-left: 7rem;
-    padding-top: 1rem;
-  }
-
-  .colControl{
-    margin-bottom: 2rem;
-  }
-
-
-
-
- 
-

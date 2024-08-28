@@ -23,10 +23,10 @@ export default function Home({ session }) {
     return (
         <div>
            <NavbarItem></NavbarItem>
-          <div className={styles.contControl}>
-           <Row className={styles.menuControl}>
+           <div className={styles.menuControl}>
+           <Row className="g-4">
                    {recipes.map(recipe => (
-                       <Col className={styles.colControl} xs={12} md={4} key={recipe._id}>
+                       <Col xs={12} md={4} key={recipe._id}>
                            <CardItem 
                                id={recipe._id} 
                                name={recipe.recipeName} 
@@ -37,7 +37,7 @@ export default function Home({ session }) {
                    ))}
                </Row>
 
-               </div>
+           </div>
         </div>
     );
 }
