@@ -49,7 +49,7 @@ const EditRecipe = ({session}) => {
             <NavbarItem></NavbarItem>
             
             <div className={styles.formContainer}>
-            <Card style={{ width: '30rem' }}>
+            <Card  className={styles.card}>
             <Card.Body>
 
             <Card.Title>Change Recipe Details</Card.Title>
